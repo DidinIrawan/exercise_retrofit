@@ -1,10 +1,11 @@
-package com.main.exercise_retrofit
+package com.main.exercise_retrofit.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.main.exercise_retrofit.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

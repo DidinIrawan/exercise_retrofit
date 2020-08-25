@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.main.exercise_retrofit.config.RetrofitBuilder
 
-class ArtistViewModel: ViewModel(){
-    val artistRepository:ArtistRepository
+class ArtistViewModel(val artistRepository:ArtistRepository): ViewModel(){
+//    val artistRepository:ArtistRepository
 
 
-    init {
-        val artistAPI = RetrofitBuilder.createRetrofit().create(ArtistAPI::class.java)
-        artistRepository = ArtistRepository(artistAPI)
-    }
+//    init {
+//        val artistAPI = RetrofitBuilder.createRetrofit().create(ArtistAPI::class.java)
+//        artistRepository = ArtistRepository(artistAPI)
+//    }
 
     val artist : LiveData<Artist> = artistRepository.artist
 
