@@ -9,13 +9,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.main.exercise_retrofit.R
 import com.main.exercise_retrofit.artist.ArtistViewModel
+import com.main.exercise_retrofit.container.AppContainer
+import com.main.exercise_retrofit.container.MyApplication
 import kotlinx.android.synthetic.main.fragment_artist.*
 
 
 class ArtistFragment : Fragment(), View.OnClickListener {
-    private val artistViewModel by activityViewModels<ArtistViewModel>()
+//    private val artistViewModel by activityViewModels<ArtistViewModel>()
+
+    lateinit var appContainer: AppContainer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        appContainer=(activity?.application as MyApplication).appContainer
 
     }
 
@@ -29,7 +34,7 @@ class ArtistFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        artistViewModel.artist.observe(viewLifecycleOwner, Observer {
+        appContainer.artistViewModel.artist.observe(viewLifecycleOwner, Observer {
             artistNameText.text = it.nama
         })
         fetchButton.setOnClickListener(this)
@@ -41,6 +46,6 @@ class ArtistFragment : Fragment(), View.OnClickListener {
         }
     }
     private fun getArtistByID(){
-        artistViewModel.getArtist(artistIDInputText.text.toString())
+        appContainer.artistViewModel.getArtist(artistIDInputText.text.toString())
     }
 }
