@@ -3,5 +3,8 @@ package com.main.exercise_retrofit.container
 import android.app.Application
 
 class MyApplication : Application(){
-    val appContainer: AppContainer = AppContainer()
+//    manual inject
+//    val appContainer: AppContainer = AppContainer()
+
+    val applicationComponent:ApplicationComponent = DaggerApplicationComponent.create()
 }

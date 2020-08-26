@@ -6,18 +6,26 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.main.exercise_retrofit.R
+import com.main.exercise_retrofit.artist.ArtistViewModel
+import com.main.exercise_retrofit.container.AppContainer
 import com.main.exercise_retrofit.container.MyApplication
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
+//    lateinit var appContainer: AppContainer
+    @Inject lateinit var artistViewModel: ArtistViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        (applicationContext as MyApplication).applicationComponent.inject(this)
+
 //        application == sebagai parent
-        val appContainer = (application as MyApplication).appContainer
-        appContainer.artistViewModel
+//        appContainer = (application as MyApplication).appContainer
+//       val appContainer = (application as MyApplication).appContainer
+//       appContainer.artistViewModel
         navController = (nav_main_host_fragment_container as NavHostFragment).navController
         NavigationUI.setupWithNavController(bottom_navigation, navController)
 

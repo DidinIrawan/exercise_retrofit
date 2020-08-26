@@ -6,9 +6,9 @@ import com.main.exercise_retrofit.artist.ArtistViewModel
 import com.main.exercise_retrofit.config.RetrofitBuilder
 
 class AppContainer{
-    private val artistAPI: ArtistAPI = RetrofitBuilder.createRetrofit().create((ArtistAPI::class.java))
-    private val artistRepository: ArtistRepository = ArtistRepository(artistAPI)
-    val artistViewModel: ArtistViewModel = ArtistViewModel(artistRepository)
+//    private val artistAPI: ArtistAPI = RetrofitBuilder.createRetrofit().create((ArtistAPI::class.java))
+//    private val artistRepository: ArtistRepository = ArtistRepository(artistAPI)
+//    val artistViewModel: ArtistViewModel = ArtistViewModel(artistRepository)
 //    val artistViewModelFactory: ArtistViewModelFactory = ArtistViewModelFactory(artistRepository)
 
 

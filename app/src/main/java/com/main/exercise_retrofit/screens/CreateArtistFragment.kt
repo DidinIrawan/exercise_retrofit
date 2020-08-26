@@ -12,16 +12,19 @@ import com.main.exercise_retrofit.artist.ArtistViewModel
 import com.main.exercise_retrofit.container.AppContainer
 import com.main.exercise_retrofit.container.MyApplication
 import kotlinx.android.synthetic.main.fragment_create_artist.*
+import javax.inject.Inject
 
 
 class CreateArtistFragment : Fragment(), View.OnClickListener {
 //    val artistViewModel by activityViewModels<ArtistViewModel>()
-
-    lateinit var appContainer: AppContainer
+    @Inject lateinit var artistViewModel: ArtistViewModel
+//    lateinit var appContainer: AppContainer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appContainer = (activity?.application as MyApplication).appContainer
-    }
+//        appContainer = (activity?.application as MyApplication).appContainer
+    (activity?.applicationContext as MyApplication).applicationComponent.inject(this)
+
+}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +48,7 @@ class CreateArtistFragment : Fragment(), View.OnClickListener {
                     jabatan = jabatanInput.text.toString(),
                     email = emailInput.text.toString()
                 )
-                    appContainer.artistViewModel.saveArtist(artist)
+                    artistViewModel.saveArtist(artist)
             }
         }
     }

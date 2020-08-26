@@ -3,8 +3,9 @@ package com.main.exercise_retrofit.artist
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.main.exercise_retrofit.config.RetrofitBuilder
+import javax.inject.Inject
 
-class ArtistViewModel(val artistRepository:ArtistRepository): ViewModel(){
+class ArtistViewModel @Inject constructor(val artistRepository:ArtistRepository){
 
 
 //    val artistRepository:ArtistRepository
